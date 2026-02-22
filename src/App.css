@@ -14,6 +14,7 @@
   background-color: black;
   display: flex;
   border: solid 5px black;
+  flex-wrap: wrap;
 }
 #display {
   width: 100%;
@@ -24,6 +25,22 @@
   display: flex;
   justify-content: right;
   align-items: end;
+  border: solid 1px black;
+}
+.button{
+  width: 24%;
+  height: 16%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+}
+.wide {
+  width: 48%;
+}
+.tall{
+  height: 32%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
