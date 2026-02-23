@@ -6,14 +6,23 @@ import Buttons from './Buttons';
 class Calculator extends React.Component{
 	constructor (props){
 		super(props)
+		this.state = {
+			display: 11
+		}
+		this.changeDisplay = this.changeDisplay.bind(this);
+	}
+	changeDisplay(newDisplay){
+		this.setState({
+		  display: newDisplay
+		});
 	}
 	render(){
 		return(
 			<div id="calculator">
 				{/*Display component to keep track of all calculations*/}
-				<Display />
+				<Display display={this.state.display} />
 				{/*Container component with all of the buttons*/}
-				<Buttons />
+				<Buttons changeDisplay={this.changeDisplay} />
 			</div>
 		)
 	}
