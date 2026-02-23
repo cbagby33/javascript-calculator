@@ -2,11 +2,11 @@ import Button from './Button'
 import buttonMap from '../buttonMap.json'
 
 function Buttons({
-	changeDisplay
+	display, changeDisplay
 }) {
 	// iterate over button map to create calculator buttons
 	const buttons = buttonMap.buttons.map((button, idx) =>	
-		<Button id={button.id} label={button.label} type={button.type} changeDisplay={changeDisplay} key={'button '+idx}/>
+		<Button id={button.id} label={button.label} type={button.type} display={display} changeDisplay={changeDisplay} key={'button '+idx}/>
 	);
 	// create rows for grid styling of buttons
 	const rows = buttonMap.rows.map((row, idx) => {

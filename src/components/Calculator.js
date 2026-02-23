@@ -7,7 +7,7 @@ class Calculator extends React.Component{
 	constructor (props){
 		super(props)
 		this.state = {
-			display: 11
+			display: 0
 		}
 		this.changeDisplay = this.changeDisplay.bind(this);
 	}
@@ -22,7 +22,7 @@ class Calculator extends React.Component{
 				{/*Display component to keep track of all calculations*/}
 				<Display display={this.state.display} />
 				{/*Container component with all of the buttons*/}
-				<Buttons changeDisplay={this.changeDisplay} />
+				<Buttons display={this.state.display} changeDisplay={this.changeDisplay} />
 			</div>
 		)
 	}
