@@ -6,7 +6,7 @@ class Button extends React.Component{
 	}
 	render(){
 		return(
-			<div id={this.props.id} className={'button '+this.props.type}>{this.props.label}</div>
+			<button id={this.props.id} className={'button '+this.props.type}>{this.props.label}</button>
 		)
 	}
 }
