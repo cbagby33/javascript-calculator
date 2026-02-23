@@ -1,3 +1,123 @@
 {
-	
+	"buttons":[
+		{
+			"id": "AC",
+			"label": "AC",
+			"type":"wide"
+		},
+		{
+			"id": "divide",
+			"label": "/",
+			"type":"regular"
+		},
+		{
+			"id": "multiply",
+			"label": "x",
+			"type":"regular"
+		},
+		{
+			"id": "seven",
+			"label": "7",
+			"type":"regular"
+		},
+		{
+			"id": "eight",
+			"label": "8",
+			"type":"regular"
+		},
+		{
+			"id": "nine",
+			"label": "9",
+			"type":"regular"
+		},
+		{
+			"id": "subtract",
+			"label": "-",
+			"type":"regular"
+		},
+		{
+			"id": "four",
+			"label": "4",
+			"type":"regular"
+		},
+		{
+			"id": "five",
+			"label": "5",
+			"type":"regular"
+		},
+		{
+			"id": "six",
+			"label": "6",
+			"type":"regular"
+		},
+		{
+			"id": "add",
+			"label": "+",
+			"type":"regular"
+		},
+		{
+			"id": "one",
+			"label": "1",
+			"type":"regular"
+		},
+		{
+			"id": "two",
+			"label": "2",
+			"type":"regular"
+		},
+		{
+			"id": "three",
+			"label": "3",
+			"type":"regular"
+		},
+		{
+			"id": "zero",
+			"label": "0",
+			"type":"wide"
+		},
+		{
+			"id": "decimal",
+			"label": ".",
+			"type":"regular"
+		},
+		{
+			"id": "equals",
+			"label": "=",
+			"type":"tall"
+		}
+	],
+	"rows":[
+		{
+			"name":"one",
+			"columns":[],
+			"start":0,
+			"end":3
+		},
+		{
+			"name":"two",
+			"columns":[],
+			"start":3,
+			"end":7
+		},
+		{
+			"name":"three",
+			"columns":[],
+			"start":7,
+			"end":11
+		},
+		{
+			"name":"four",
+			"columns":[
+				{
+					"name":"first",
+					"start":11,
+					"end":16
+				},
+				{
+					"name":"second",
+					"start":16
+				}
+			]
+		}
+	]
 }
