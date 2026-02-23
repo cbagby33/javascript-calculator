@@ -7,20 +7,22 @@ class Calculator extends React.Component{
 	constructor (props){
 		super(props)
 		this.state = {
-			display: 0
+			display: 0,
+			equation: ''
 		}
 		this.changeDisplay = this.changeDisplay.bind(this);
 	}
 	changeDisplay(newDisplay){
 		this.setState({
-		  display: newDisplay
+		  display: newDisplay,
+		  equation: newDisplay
 		});
 	}
 	render(){
 		return(
 			<div id="calculator">
 				{/*Display component to keep track of all calculations*/}
-				<Display display={this.state.display} />
+				<Display display={this.state.display} equation={this.state.equation} />
 				{/*Container component with all of the buttons*/}
 				<Buttons display={this.state.display} changeDisplay={this.changeDisplay} />
 			</div>
