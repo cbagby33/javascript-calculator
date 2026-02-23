@@ -19,7 +19,6 @@
 #display {
   width: 100%;
   height: 20%;
-  background-color: #320e39;
   color: white;
   font-size: 3em;
   display: flex;
@@ -27,20 +26,46 @@
   align-items: end;
   border: solid 1px black;
 }
+.row{
+  height: 64px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.four{
+  height: 128px;
+}
+.inner-column.first{
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#buttons{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .button{
-  width: 24%;
-  height: 16%;
-  background-color: white;
+  width: 69px;
+  height: 63px;
+  background-color: #353535;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+}
+#equals{
+  background-color: #3C6E71;
+}
+#AC{
+  background-color: #284B63;
 }
 .wide {
-  width: 48%;
+  width: 139px;
 }
 .tall{
-  height: 32%;
+  height: 127px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

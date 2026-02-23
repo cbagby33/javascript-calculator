@@ -12,23 +12,38 @@ class Calculator extends React.Component{
 			<div id="calculator">
 				{/*Display component to keep track of all calculations*/}
 				<Display />
-				<Button label="AC" type="wide" />
-				<Button label="/" type="regular" />
-				<Button label="x" type="regular" />
-				<Button label="7" type="regular" />
-				<Button label="8" type="regular" />
-				<Button label="9" type="regular" />
-				<Button label="-" type="regular" />
-				<Button label="4" type="regular" />
-				<Button label="5" type="regular" />
-				<Button label="6" type="regular" />
-				<Button label="+" type="regular" />
-				<Button label="1" type="regular" />
-				<Button label="2" type="regular" />
-				<Button label="3" type="regular" />
-				<Button label="=" type="tall" />
-				<Button label="0" type="wide" />
-				<Button label="." type="regular" />
+				<div id="buttons">
+					<div className="row one">
+						<Button id="AC" label="AC" type="wide" />
+						<Button id="divide" label="/" type="regular" />
+						<Button id="multiply" label="x" type="regular" />
+					</div>
+					<div className="row two">
+						<Button id="seven" label="7" type="regular" />
+						<Button id="eight" label="8" type="regular" />
+						<Button id="nine" label="9" type="regular" />
+						<Button id="subtract" label="-" type="regular" />
+					</div>
+					<div className="row three">
+						<Button id="four" label="4" type="regular" />
+						<Button id="five" label="5" type="regular" />
+						<Button id="six" label="6" type="regular" />
+						<Button id="add" label="+" type="regular" />
+					</div>
+					<div className="row four">
+						<div className="inner-column first">
+							<Button id="one" label="1" type="regular" />
+							<Button id="two" label="2" type="regular" />
+							<Button id="three" label="3" type="regular" />
+							<Button id="zero" label="0" type="wide" />
+							<Button id="decimal" label="." type="regular" />
+						</div>
+						<div className="inner-column second">
+							<Button id="equals" label="=" type="tall" />
+						</div>
+							
+					</div>
+				</div>
 			</div>
 		)
 	}
