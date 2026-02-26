@@ -12,11 +12,49 @@ class Calculator extends React.Component{
 		}
 		this.changeDisplay = this.changeDisplay.bind(this);
 	}
-	changeDisplay(newDisplay){
-		this.setState({
-		  display: newDisplay,
-		  equation: newDisplay
-		});
+	changeDisplay(key){
+		switch(true){
+			case key === 'AC':
+				this.setState({
+				  display: 0,
+				  equation: ''
+				});
+				break;
+			case this.state.display === 0:
+				this.setState({
+				  display: key,
+				  equation: key
+				});
+				break;
+			case key === 'x' || key === '+' || key === '-' || key === '/':
+				this.setState({
+				  display: key,
+				  equation: this.state.equation+key
+				});
+				break;
+			case this.state.display === 'x' || this.state.display === '+' || this.state.display === '-' || this.state.display === '/':
+				this.setState({
+				  display: key,
+				  equation: this.state.equation+key
+				});
+				break;
+			case key === '=' :
+				let formattedEquation = this.state.equation.replace('x','*')
+				let solution = new Function('return '+formattedEquation)
+				console.log(solution())
+				this.setState({
+				  display: solution(),
+				  equation: this.state.equation+key+solution()
+				});
+				break;
+			default:
+				this.setState({
+				  display: this.state.display+key,
+				  equation: this.state.equation+key
+				});
+				break;
+		}
+		
 	}
 	render(){
 		return(

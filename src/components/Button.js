@@ -6,15 +6,7 @@ class Button extends React.Component{
 		this.handleClick = this.handleClick.bind(this);
 	}
 	handleClick(){
-		if (this.props.label === 'AC') {
-			this.props.changeDisplay(0)
-		} else{
-			if(this.props.display === 0){
-				this.props.changeDisplay(this.props.label)
-			} else{
-				this.props.changeDisplay(this.props.display+this.props.label)
-			}
-		}
+		this.props.changeDisplay(this.props.label)
 	}
 	render(){
 		return(
