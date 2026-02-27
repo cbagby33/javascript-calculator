@@ -8,12 +8,45 @@ class Calculator extends React.Component{
 		super(props)
 		this.state = {
 			display: 0,
-			equation: ''
+			equation: '',
+			isDecimal:false,
+			isSolution: false
 		}
 		this.changeDisplay = this.changeDisplay.bind(this);
+		this.isOperation = this.isOperation.bind(this);
+	}
+	isOperation(key){
+		if(key === 'x' || key === '+' || key === '-' || key === '/'){
+			return true;
+		}
+		return false;
 	}
 	changeDisplay(key){
 		switch(true){
+			case key === '.':
+				if(!this.state.isDecimal){
+					if(this.state.display === 0 || this.isOperation(this.state.display)){
+						this.setState({
+							display: 0+key,
+						  	equation: this.state.equation+0+key,
+							isDecimal:true
+						});
+					} else {
+						this.setState({
+							display: this.state.display+key,
+						  	equation: this.state.equation+key,
+							isDecimal:true
+						});
+					}
+				}
+				break;
+			case this.isOperation(key) && String(this.state.display).slice(-1) === '.':
+				this.setState({
+				  display: key,					
+				  equation: this.state.equation.slice(0,-1)+key,
+				  isDecimal:false
+				})
+				break;
 			case key === 'AC':
 				this.setState({
 				  display: 0,
@@ -26,25 +59,23 @@ class Calculator extends React.Component{
 				  equation: key
 				});
 				break;
-			case key === 'x' || key === '+' || key === '-' || key === '/':
+			case key === '=':
+				if(!this.state.isSolution){
+					let formattedEq = (/[x+\-./]/g).test(this.state.equation.slice(-1)) ? this.state.equation.slice(0, -1) : this.state.equation
+					let solution = new Function('return '+formattedEq.replace('x','*'))
+					this.setState({
+					  display: solution(),
+					  equation: formattedEq+key+solution(),
+					  isDecimal: false,
+					  isSolution: true
+					});
+				}
+				break;
+			case this.isOperation(this.state.display) || this.isOperation(key):
 				this.setState({
 				  display: key,
-				  equation: this.state.equation+key
-				});
-				break;
-			case this.state.display === 'x' || this.state.display === '+' || this.state.display === '-' || this.state.display === '/':
-				this.setState({
-				  display: key,
-				  equation: this.state.equation+key
-				});
-				break;
-			case key === '=' :
-				let formattedEquation = this.state.equation.replace('x','*')
-				let solution = new Function('return '+formattedEquation)
-				console.log(solution())
-				this.setState({
-				  display: solution(),
-				  equation: this.state.equation+key+solution()
+				  equation: this.state.equation+key,
+				  isDecimal:false
 				});
 				break;
 			default:
