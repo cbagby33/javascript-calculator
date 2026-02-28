@@ -10,10 +10,17 @@ class Calculator extends React.Component{
 			display: 0,
 			equation: '',
 			isDecimal:false,
-			isSolution: false
+			isSolution: false,
 		}
 		this.changeDisplay = this.changeDisplay.bind(this);
-		this.isOperation = this.isOperation.bind(this);
+	}
+	clearDisplay(){
+		this.setState({
+			display: 0,
+			equation: '',
+			isDecimal:false,
+			isSolution: false			
+		});
 	}
 	isOperation(key){
 		if(key === 'x' || key === '+' || key === '-' || key === '/'){
@@ -23,6 +30,33 @@ class Calculator extends React.Component{
 	}
 	changeDisplay(key){
 		switch(true){
+			case this.state.isSolution:
+				if(this.isOperation(key)){
+					this.setState({
+						display: key,
+						equation: this.state.display+key,
+						isDecimal: (/[/.]/).test(this.state.display),
+						isSolution: false			
+					});
+				} else if(key === 'AC'){
+					this.clearDisplay();
+				} else if(key === '.'){
+					this.setState({
+						display: 0+key,
+					  	equation: 0+key,
+						isDecimal:true,
+						isSolution: false			
+					});
+				} else{
+					this.setState({
+						display: key,
+					  	equation: key,
+						isDecimal:false,
+						isSolution: false			
+					});
+				}
+
+				break;
 			case key === '.':
 				if(!this.state.isDecimal){
 					if(this.state.display === 0 || this.isOperation(this.state.display)){
@@ -48,10 +82,7 @@ class Calculator extends React.Component{
 				})
 				break;
 			case key === 'AC':
-				this.setState({
-				  display: 0,
-				  equation: ''
-				});
+				this.clearDisplay();
 				break;
 			case this.state.display === 0:
 				this.setState({
@@ -66,7 +97,7 @@ class Calculator extends React.Component{
 					this.setState({
 					  display: solution(),
 					  equation: formattedEq+key+solution(),
-					  isDecimal: false,
+					  isDecimal: (/[\.]/).test(String(solution())),
 					  isSolution: true
 					});
 				}
